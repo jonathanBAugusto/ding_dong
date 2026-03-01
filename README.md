@@ -36,3 +36,8 @@ sudo apt-get install libayatana-appindicator3-dev
 ```bash
 sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 ```
+
+
+## For MacOS:
+
+- you may need this page: [launch_at_startup](https://pub.dev/packages/launch_at_startup)

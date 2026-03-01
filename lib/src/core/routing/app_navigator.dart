@@ -17,4 +17,6 @@ class AppNavigator {
   void _setRouter() {
     router = GoRouter(navigatorKey: navigatorKey, routes: _appRoutes.routes);
   }
+
+  void pop<T extends Object?>([T? result]) => router.pop<T>(result);
 }
