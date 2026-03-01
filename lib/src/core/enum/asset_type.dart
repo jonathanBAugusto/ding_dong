@@ -1,1 +1,1 @@
-enum AssetType { asset, file, url }
+enum AssetType { asset, file, url, bytes }

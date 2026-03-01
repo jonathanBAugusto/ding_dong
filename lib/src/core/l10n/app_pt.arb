@@ -1,3 +1,6 @@
 {
-  "homeScreenTitle": "Bem-vindo ao Ding Dong!"
+  "homeScreenTitle": "Bem-vindo ao Ding Dong!",
+  "homeScreenWelcomeMessage": "Esta é a tela inicial do Ding Dong. Aproveite sua estadia!",
+  "startButton": "Iniciar",
+  "stopButton": "Parar"
 }

@@ -98,6 +98,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome to Ding Dong!'**
   String get homeScreenTitle;
+
+  /// No description provided for @homeScreenWelcomeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the home screen of Ding Dong. Enjoy your stay!'**
+  String get homeScreenWelcomeMessage;
+
+  /// No description provided for @startButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get startButton;
+
+  /// No description provided for @stopButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get stopButton;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
