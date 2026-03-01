@@ -19,4 +19,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stopButton => 'Stop';
+
+  @override
+  String get createAlarmButton => 'Create Alarm';
+
+  @override
+  String get alarmTimeLabel => 'Alarm Time';
+
+  @override
+  String get alarmRepeatLabel => 'Repeat';
+
+  @override
+  String get alarmRepeatModeDaily => 'Daily';
+
+  @override
+  String get alarmRepeatModeWeekly => 'Weekly';
+
+  @override
+  String get alarmRepeatModeMonthly => 'Monthly';
+
+  @override
+  String get alarmRepeatModeYearly => 'Yearly';
 }

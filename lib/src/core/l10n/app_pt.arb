@@ -2,5 +2,12 @@
   "homeScreenTitle": "Bem-vindo ao Ding Dong!",
   "homeScreenWelcomeMessage": "Esta é a tela inicial do Ding Dong. Aproveite sua estadia!",
   "startButton": "Iniciar",
-  "stopButton": "Parar"
+  "stopButton": "Parar",
+  "createAlarmButton": "Criar Alarme",
+  "alarmTimeLabel": "Hora da Alarme",
+  "alarmRepeatLabel": "Repetir",
+  "alarmRepeatModeDaily": "Diário",
+  "alarmRepeatModeWeekly": "Semanal",
+  "alarmRepeatModeMonthly": "Mensal",
+  "alarmRepeatModeYearly": "Anual"
 }

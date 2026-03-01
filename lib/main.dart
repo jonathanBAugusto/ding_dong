@@ -1,7 +1,9 @@
 import 'dart:io';
 
-import 'package:ding_dong/src/core/di/injector.dart';
-import 'package:ding_dong/src/core/window/main_window_listener.dart';
+import 'src/core/di/injector.dart';
+import 'src/core/hive/hive_adapters.dart';
+import 'src/core/models/alarm.dart';
+import 'src/core/window/main_window_listener.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_ce_flutter/hive_ce_flutter.dart';
@@ -12,9 +14,19 @@ import 'package:window_manager/window_manager.dart';
 import 'src/core/l10n/generated/app_localizations.dart';
 import 'src/core/routing/app_navigator.dart';
 import 'src/core/services/tray_service.dart';
+import 'src/features/alarm_list/data/services/alarm_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(TimeOfDayAdapter());
+  Hive.registerAdapter(AssetTypeAdapter());
+  Hive.registerAdapter(AlarmRepeatModeAdapter());
+  Hive.registerAdapter(AlarmAdapter());
+  Hive.registerAdapter(AlarmAssetAdapter());
+
+  await Hive.openBox<Alarm>(alarmBoxName);
 
   final packageInfo = await PackageInfo.fromPlatform();
 
@@ -25,7 +37,6 @@ void main() async {
   );
 
   await windowManager.ensureInitialized();
-  await Hive.initFlutter();
 
   configureDependencies();
 

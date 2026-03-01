@@ -1,4 +1,4 @@
-import 'package:ding_dong/src/core/global.dart';
+import '../global.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 

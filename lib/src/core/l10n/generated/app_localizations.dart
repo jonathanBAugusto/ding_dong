@@ -116,6 +116,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Stop'**
   String get stopButton;
+
+  /// No description provided for @createAlarmButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Alarm'**
+  String get createAlarmButton;
+
+  /// No description provided for @alarmTimeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Alarm Time'**
+  String get alarmTimeLabel;
+
+  /// No description provided for @alarmRepeatLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat'**
+  String get alarmRepeatLabel;
+
+  /// No description provided for @alarmRepeatModeDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get alarmRepeatModeDaily;
+
+  /// No description provided for @alarmRepeatModeWeekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get alarmRepeatModeWeekly;
+
+  /// No description provided for @alarmRepeatModeMonthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get alarmRepeatModeMonthly;
+
+  /// No description provided for @alarmRepeatModeYearly.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly'**
+  String get alarmRepeatModeYearly;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

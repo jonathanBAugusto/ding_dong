@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:ding_dong/src/core/models/alarm.dart';
-import 'package:ding_dong/src/core/services/audio_service.dart';
+import '../models/alarm.dart';
+import 'audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 

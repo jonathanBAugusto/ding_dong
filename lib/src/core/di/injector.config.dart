@@ -12,7 +12,10 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../../features/alarm_list/data/services/alarm_service.dart' as _i542;
+import '../../features/alarm_list/domain/alarm_controller.dart' as _i451;
 import '../dialogs/dialog_handler.dart' as _i301;
+import '../notifications/toast.dart' as _i202;
 import '../routing/app_navigator.dart' as _i457;
 import '../routing/app_routes.dart' as _i574;
 import '../services/audio_service.dart' as _i15;
@@ -27,9 +30,11 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    gh.singleton<_i202.Toast>(() => _i202.Toast());
     gh.singleton<_i574.AppRoutes>(() => const _i574.AppRoutes());
     gh.singleton<_i15.AudioService>(() => _i15.AudioService());
     gh.singleton<_i585.TrayService>(() => _i585.TrayService());
+    gh.singleton<_i542.AlarmService>(() => _i542.AlarmService());
     gh.singleton<_i1036.SchedulerService>(
       () => _i1036.SchedulerService(gh<_i15.AudioService>()),
     );
@@ -41,6 +46,14 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i706.MainWindowListener>(
       () => _i706.MainWindowListener(gh<_i301.DialogHandler>()),
+    );
+    gh.singleton<_i451.AlarmController>(
+      () => _i451.AlarmController(
+        gh<_i542.AlarmService>(),
+        gh<_i1036.SchedulerService>(),
+        gh<_i202.Toast>(),
+        gh<_i301.DialogHandler>(),
+      ),
     );
     return this;
   }

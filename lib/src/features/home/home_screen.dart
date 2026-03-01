@@ -1,48 +1,54 @@
-import 'package:ding_dong/src/core/di/injector.dart';
-import 'package:ding_dong/src/core/enum/alarm_repeat_mode.dart';
-import 'package:ding_dong/src/core/models/alarm.dart';
+import '../../core/di/injector.dart';
+import '../alarm_list/components/alarm_data_table.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/enum/asset_type.dart';
 import '../../core/l10n/localization_utils.dart';
-import '../../core/models/alarm_asset.dart';
-import '../../core/services/scheduler_service.dart';
+import '../alarm_list/domain/alarm_controller.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final alarmController = getIt.get<AlarmController>();
+
+  @override
+  void initState() {
+    alarmController.initialize();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(LocalizationsUtils.l10n.homeScreenTitle)),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(LocalizationsUtils.l10n.homeScreenWelcomeMessage, textAlign: TextAlign.center),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                getIt.get<SchedulerService>().start(const [
-                  Alarm(
-                    id: 23,
-                    label: 'Test Alarm',
-                    time: TimeOfDay(hour: 23, minute: 00),
-                    repeatMode: AlarmRepeatMode.daily,
-                    soundAsset: AlarmAsset(path: 'sounds/school-bell.mp3', type: AssetType.asset),
+        child: AnimatedBuilder(
+          animation: Listenable.merge([alarmController.alarms, alarmController.isLoading]),
+          builder: (context, child) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(LocalizationsUtils.l10n.homeScreenWelcomeMessage, textAlign: TextAlign.center),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: alarmController.onNewAlarmTap,
+                    child: Text(LocalizationsUtils.l10n.createAlarmButton),
                   ),
-                ]);
-              },
-              child: Text(LocalizationsUtils.l10n.startButton),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                getIt.get<SchedulerService>().stop();
-              },
-              child: Text(LocalizationsUtils.l10n.stopButton),
-            ),
-          ],
+                ],
+              ),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 900, maxHeight: 800),
+                child: AlarmDataTable(alarms: alarmController.alarms.value),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
