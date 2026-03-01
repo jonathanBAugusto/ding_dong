@@ -10,4 +10,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeScreenTitle => 'Bem-vindo ao Ding Dong!';
+
+  @override
+  String get homeScreenWelcomeMessage => 'Esta é a tela inicial do Ding Dong. Aproveite sua estadia!';
+
+  @override
+  String get startButton => 'Iniciar';
+
+  @override
+  String get stopButton => 'Parar';
 }

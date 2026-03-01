@@ -21,3 +21,23 @@ samples, guidance on mobile development, and a full API reference.
 > `flutter gen-l10n` - Generate localization files based on the `l10n.yaml` configuration.
 > `dart run build_runner build` - Run code generation for Hive type adapters and other generated code.
 > `dart run build_runner watch` - Continuously watch for changes and regenerate code as needed.
+
+## For Linux:
+
+- Requires libayatana-appindicator3-dev or libappindicator3-dev for system tray
+
+```bash
+sudo apt-get install libayatana-appindicator3-dev
+```
+
+- Use .png icons for the tray
+- audioplayers requires GStreamer:
+
+```bash
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+```
+
+
+## For MacOS:
+
+- you may need this page: [launch_at_startup](https://pub.dev/packages/launch_at_startup)
